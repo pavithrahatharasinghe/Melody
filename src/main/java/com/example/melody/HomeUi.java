@@ -27,7 +27,7 @@ public class HomeUi extends Application {
         primaryStage.getIcons().add(icon);
         primaryStage.setTitle("Melody v1.0!");
 
-        primaryStage.setResizable(true);
+        primaryStage.setResizable(false);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
