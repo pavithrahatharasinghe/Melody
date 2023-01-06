@@ -1,14 +1,20 @@
 package com.example.melody;
 
 import javafx.beans.property.SimpleStringProperty;
-
-public class Mp3File {
-
-
-    public SimpleStringProperty filePath,fileName,title,artist,album,year,genre;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 
-    public Mp3File(String filePath, String fileName, String title, String artist, String album, String year, String genre) {
+public class LocalMp3File {
+
+
+    public SimpleStringProperty filePath,fileName,title,artist,album,year,genre,lyrics;
+
+    public ImageView albumArt;
+
+
+
+    public LocalMp3File(String filePath, String fileName, String title, String artist, String album, String year, String genre,String lyrics,ImageView albumArt) {
         this.filePath = new SimpleStringProperty(filePath);
         this.fileName = new SimpleStringProperty(fileName);
         this.title = new SimpleStringProperty(title);
@@ -16,10 +22,17 @@ public class Mp3File {
         this.album = new SimpleStringProperty(album);
         this.year = new SimpleStringProperty(year);
         this.genre = new SimpleStringProperty(genre);
+        this.lyrics =  new SimpleStringProperty(lyrics);
+        this.albumArt = albumArt;
     }
 
 
-    public Mp3File() {
+
+
+
+
+
+    public LocalMp3File() {
 
     }
 
@@ -105,5 +118,25 @@ public class Mp3File {
 
     public void setGenre(String genre) {
         this.genre.set(genre);
+    }
+
+    public String getLyrics() {
+        return lyrics.get();
+    }
+
+    public SimpleStringProperty lyricsProperty() {
+        return lyrics;
+    }
+
+    public void setLyrics(String lyrics) {
+        this.lyrics.set(lyrics);
+    }
+
+    public ImageView getAlbumArt() {
+        return albumArt;
+    }
+
+    public void setAlbumArt(ImageView albumArt) {
+        this.albumArt = albumArt;
     }
 }

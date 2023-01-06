@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
@@ -7,33 +8,53 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
 <AnchorPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.melody.HomeUiController">
    <children>
-      <BorderPane layoutX="-3.0" stylesheets="@styles.css">
+      <BorderPane layoutX="-3.0" snapToPixel="false" stylesheets="@styles.css">
          <top>
-            <Pane prefHeight="30.0" prefWidth="1600.0" BorderPane.alignment="CENTER" />
+            <Pane BorderPane.alignment="CENTER" />
          </top>
          <left>
-            <Pane prefHeight="820.0" prefWidth="300.0" styleClass="webPanel" BorderPane.alignment="TOP_LEFT">
+            <Pane minHeight="820.0" minWidth="300.0" styleClass="webPanel" BorderPane.alignment="TOP_LEFT">
                <children>
                   <VBox>
                      <children>
-                        <ImageView fx:id="albumArtLocal" fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="albumArtOnline" fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" />
                         <VBox>
                            <children>
-                              <Label text="Label" />
-                              <Label text="Label" />
-                              <Label text="Label" />
-                              <Label text="Label" />
-                              <Label text="Label" />
-                              <Label text="Label" />
+                              <Label text="Label">
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin></Label>
+                              <Label text="Label">
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin></Label>
+                              <Label text="Label">
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin></Label>
+                              <Label text="Label">
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin></Label>
+                              <Label text="Label">
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin></Label>
+                              <Label text="Label">
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin></Label>
                            </children>
                         </VBox>
                      </children>
@@ -53,58 +74,72 @@
             <Pane prefHeight="200.0" prefWidth="1000.0" styleClass="webPanel" BorderPane.alignment="CENTER">
                <children>
                   <VBox />
-                  <TableView fx:id="musicTable" editable="true" layoutX="1.0" prefHeight="820.0" prefWidth="999.0">
+                  <TableView fx:id="musicTable" editable="true" layoutX="1.0" minHeight="850.0" onKeyPressed="#ChgangeCurrrentMp3File" onMouseClicked="#ChgangeCurrrentMp3File">
                     <columns>
-                      <TableColumn prefWidth="75.0" text="Album Art" />
-                      <TableColumn fx:id="tblFileNameColumn" prefWidth="88.0" text="File Name" />
-                        <TableColumn fx:id="tblArtistColumn" minWidth="0.0" prefWidth="76.0" text="Artist" />
-                        <TableColumn fx:id="tblTitleColumn" prefWidth="79.0" text="Title" />
-                        <TableColumn fx:id="tblAlbumColumn" prefWidth="100.0" text="Album" />
-                        <TableColumn fx:id="tblYearColumn" prefWidth="84.0" text="Year" />
-                        <TableColumn fx:id="tblGenreColumn" prefWidth="147.0" text="Genre" />
+                      <TableColumn fx:id="tblAlbumArtColumn" editable="false" maxWidth="60.0" minWidth="60.0" prefWidth="60.0" resizable="false" sortable="false" text="Album Art" />
+                      <TableColumn fx:id="tblFileNameColumn" minWidth="100.0" onEditCommit="#EditTableFileNameField" prefWidth="-1.0" text="File Name" />
+                        <TableColumn fx:id="tblArtistColumn" minWidth="100.0" onEditCommit="#EditTableArtistField" prefWidth="-1.0" text="Artist" />
+                        <TableColumn fx:id="tblTitleColumn" minWidth="100.0" onEditCommit="#EditTableTitleField" prefWidth="-1.0" text="Title" />
+                        <TableColumn fx:id="tblAlbumColumn" minWidth="100.0" onEditCommit="#EditTableAlbumField" prefWidth="-1.0" text="Album" />
+                        <TableColumn fx:id="tblYearColumn" minWidth="100.0" onEditCommit="#EditTableYearField" prefWidth="-1.0" text="Year" />
+                        <TableColumn fx:id="tblGenreColumn" minWidth="100.0" onEditCommit="#EditTableGenreField" prefWidth="-1.0" text="Genre" />
+                        <TableColumn fx:id="tblSaveCol" editable="false" minWidth="100.0" onEditCommit="#EditTableGenreField" prefWidth="-1.0" sortable="false" text="Save" />
                     </columns>
                   </TableView>
                </children>
             </Pane>
          </right>
          <center>
-            <Pane prefHeight="200.0" prefWidth="300.0" styleClass="LocalPanel" BorderPane.alignment="CENTER">
+            <Pane minHeight="200.0" minWidth="300.0" styleClass="LocalPanel" BorderPane.alignment="CENTER">
                <children>
                   <VBox alignment="CENTER">
                      <children>
-                        <ImageView fx:id="albumArtLocal1" fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" />
-                        <VBox alignment="CENTER">
+                        <ImageView fx:id="albumArtLocal" fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" />
+                        <VBox alignment="CENTER" prefHeight="563.0" prefWidth="232.0">
                            <children>
-                              <TextField opacity="0.69" style="-fx-background-color: #5B5D6B;">
+                              <HBox prefHeight="25.0" prefWidth="269.0">
+                                 <children>
+                                    <Label text="Artist :" />
+                                    <TextField fx:id="txtFieldArtist" opacity="0.69" prefHeight="25.0" prefWidth="218.0" style="-fx-background-color: #5B5D6B;">
+                                       <cursor>
+                                          <Cursor fx:constant="CROSSHAIR" />
+                                       </cursor>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <TextField fx:id="txtFieldTitle" opacity="0.69" style="-fx-background-color: #5B5D6B;">
                                  <cursor>
-                                    <Cursor fx:constant="CROSSHAIR" />
+                                    <Cursor fx:constant="DEFAULT" />
                                  </cursor>
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin>
                               </TextField>
-                              <TextField opacity="0.69" style="-fx-background-color: #5B5D6B;">
+                              <TextField fx:id="txtFieldAlbum" opacity="0.69" style="-fx-background-color: #5B5D6B;">
                                  <cursor>
-                                    <Cursor fx:constant="CROSSHAIR" />
+                                    <Cursor fx:constant="DEFAULT" />
                                  </cursor>
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin>
                               </TextField>
-                              <TextField opacity="0.69" style="-fx-background-color: #5B5D6B;">
+                              <TextField fx:id="txtFieldYear" opacity="0.69" style="-fx-background-color: #5B5D6B;">
                                  <cursor>
-                                    <Cursor fx:constant="CROSSHAIR" />
+                                    <Cursor fx:constant="DEFAULT" />
                                  </cursor>
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin>
                               </TextField>
-                              <TextField opacity="0.69" style="-fx-background-color: #5B5D6B;">
+                              <TextField fx:id="txtFieldGenre" opacity="0.69" style="-fx-background-color: #5B5D6B;">
                                  <cursor>
-                                    <Cursor fx:constant="CROSSHAIR" />
+                                    <Cursor fx:constant="DEFAULT" />
                                  </cursor>
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin>
                               </TextField>
-                              <TextField opacity="0.69" style="-fx-background-color: #5B5D6B;">
-                                 <cursor>
-                                    <Cursor fx:constant="CROSSHAIR" />
-                                 </cursor>
-                              </TextField>
-                              <TextField opacity="0.69" style="-fx-background-color: #5B5D6B;">
-                                 <cursor>
-                                    <Cursor fx:constant="CROSSHAIR" />
-                                 </cursor>
-                              </TextField>
+                              <TextArea fx:id="txtFieldLyrics" prefHeight="352.0" prefWidth="250.0" />
                            </children>
                         </VBox>
                      </children>

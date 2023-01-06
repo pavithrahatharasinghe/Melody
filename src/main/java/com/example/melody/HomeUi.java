@@ -7,15 +7,16 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-import java.io.IOException;
+
 
 public class HomeUi extends Application {
 
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+
         Parent root = FXMLLoader.load(getClass().getResource("homeUi-view.fxml"));
-        Scene scene = new Scene(root, 1600 , 900);
+        Scene scene = new Scene(root, 1920 , 1000);
 
         String css = this.getClass().getResource("styles.css").toExternalForm();
         scene.getStylesheets().add(css);
@@ -27,7 +28,7 @@ public class HomeUi extends Application {
         primaryStage.getIcons().add(icon);
         primaryStage.setTitle("Melody v1.0!");
 
-        primaryStage.setResizable(false);
+        primaryStage.setResizable(true);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
