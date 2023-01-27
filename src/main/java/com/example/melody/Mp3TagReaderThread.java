@@ -42,7 +42,7 @@ public class Mp3TagReaderThread implements Runnable {
                         Image image = new Image(new ByteArrayInputStream(imageData));
                         ImageView albumArt = new ImageView(image);
 
-                        musicDataList.add(new LocalMp3File(x.getPath(), x.getName(), id3v2Tag.getTitle(), id3v2Tag.getArtist(), id3v2Tag.getAlbum(), id3v2Tag.getYear(), id3v2Tag.getGenreDescription(),id3v2Tag.getLyrics(),albumArt));
+                        musicDataList.add(new LocalMp3File(x.getPath(), x.getName(), id3v2Tag.getTitle(), id3v2Tag.getArtist(), id3v2Tag.getAlbum(), id3v2Tag.getYear(), id3v2Tag.getGenreDescription(), id3v2Tag.getLyrics(), albumArt));
 
 
                     }
